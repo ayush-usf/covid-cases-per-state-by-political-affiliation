@@ -1,0 +1,74 @@
+﻿Title: State Political Parties | KFF,,,,,,,,,
+Timeframe: 2020,,,,,,,,,
+Location,State Code,Governor Political Affiliation,State Senate Majority Political Affiliation,State House Majority Political Affiliation,State Attorney General Political Affiliation,State Insurance Commissioner Political Affiliation,Footnotes,latitude,longitude
+Alabama,AL,Republican,Republican,Republican,Republican,Appointed,,32.318231,-86.902298
+Alaska,AK,Republican,Republican,Republican,Appointed,Appointed,,63.588753,-154.493062
+Arizona,AZ,Republican,Republican,Republican,Republican,Appointed,,34.048928,-111.093731
+Arkansas,AR,Republican,Republican,Republican,Republican,Appointed,,35.20105,-91.831833
+California,CA,Democrat,Democrat,Democrat,Democrat,Democrat,,36.778261,-119.417932
+Colorado,CO,Democrat,Democrat,Democrat,Democrat,Appointed,,39.550051,-105.782067
+Connecticut,CT,Democrat,Democrat,Democrat,Democrat,Appointed,,41.603221,-73.087749
+Delaware,DE,Democrat,Democrat,Democrat,Democrat,Democrat,,38.910832,-75.52767
+District of Columbia,DC,Democrat,Democrat,N/A,Democrat,Appointed,1,38.905985,-77.033418
+Florida,FL,Republican,Republican,Republican,Republican,Appointed,,27.664827,-81.515754
+Georgia,GA,Republican,Republican,Republican,Republican,Appointed,,32.157435,-82.907123
+Hawaii,HI,Democrat,Democrat,Democrat,Appointed,Appointed,,19.898682,-155.665857
+Idaho,ID,Republican,Republican,Republican,Republican,Appointed,,44.068202,-114.742041
+Illinois,IL,Democrat,Democrat,Democrat,Democrat,Appointed,,40.633125,-89.398528
+Indiana,IN,Republican,Republican,Republican,Republican,Appointed,,40.551217,-85.602364
+Iowa,IA,Republican,Republican,Republican,Democrat,Appointed,,41.878003,-93.097702
+Kansas,KS,Democrat,Republican,Republican,Republican,Republican,,39.011902,-98.484246
+Kentucky,KY,Democrat,Republican,Republican,Republican,Appointed,,37.839333,-84.270018
+Louisiana,LA,Democrat,Republican,Republican,Republican,Republican,,31.244823,-92.145024
+Maine,ME,Democrat,Democrat,Democrat,Appointed,Appointed,,45.253783,-69.445469
+Maryland,MD,Republican,Democrat,Democrat,Democrat,Appointed,,39.045755,-76.641271
+Massachusetts,MA,Republican,Democrat,Democrat,Democrat,Appointed,,42.407211,-71.382437
+Michigan,MI,Democrat,Republican,Republican,Democrat,Appointed,,44.314844,-85.602364
+Minnesota,MN,Democrat,Republican,Democrat,Democrat,Appointed,,46.729553,-94.6859
+Mississippi,MS,Republican,Republican,Republican,Democrat,Republican,,32.354668,-89.398528
+Missouri,MO,Republican,Republican,Republican,Appointed,Appointed,,37.964253,-91.831833
+Montana,MT,Democrat,Republican,Republican,Republican,Republican,,46.879682,-110.362566
+Nebraska,NE,Republican,N/A,N/A,Republican,Appointed,2,41.492537,-99.901813
+Nevada,NV,Democrat,Democrat,Democrat,Democrat,Appointed,,38.80261,-116.419389
+New Hampshire,NH,Republican,Democrat,Democrat,Appointed,Appointed,,43.193852,-71.572395
+New Jersey,NJ,Democrat,Democrat,Democrat,Appointed,Appointed,,40.058324,-74.405661
+New Mexico,NM,Democrat,Democrat,Democrat,Democrat,Appointed,,34.97273,-105.032363
+New York,NY,Democrat,Democrat,Democrat,Democrat,Appointed,,43.299428,-74.217933
+North Carolina,NC,Democrat,Republican,Republican,Democrat,Republican,,35.759573,-79.0193
+North Dakota,ND,Republican,Republican,Republican,Republican,Republican,,47.551493,-101.002012
+Ohio,OH,Republican,Republican,Republican,Republican,Appointed,,40.417287,-82.907123
+Oklahoma,OK,Republican,Republican,Republican,Republican,Republican,,35.007752,-97.092877
+Oregon,OR,Democrat,Democrat,Democrat,Democrat,Appointed,,43.804133,-120.554201
+Pennsylvania,PA,Democrat,Republican,Republican,Democrat,Appointed,,41.203322,-77.194525
+Rhode Island,RI,Democrat,Democrat,Democrat,Democrat,Appointed,,41.580095,-71.477429
+South Carolina,SC,Republican,Republican,Republican,Republican,Appointed,,33.836081,-81.163725
+South Dakota,SD,Republican,Republican,Republican,Republican,Appointed,,43.969515,-99.901813
+Tennessee,TN,Republican,Republican,Republican,Appointed,Appointed,,35.517491,-86.580447
+Texas,TX,Republican,Republican,Republican,Republican,Appointed,,31.968599,-99.901813
+Utah,UT,Republican,Republican,Republican,Republican,Appointed,,39.32098,-111.093731
+Vermont,VT,Republican,Democrat,Democrat,Democrat,Appointed,,44.558803,-72.577841
+Virginia,VA,Democrat,Democrat,Democrat,Democrat,Appointed,,37.431573,-78.656894
+Washington,WA,Democrat,Democrat,Democrat,Democrat,Democrat,,47.751074,-120.740139
+West Virginia,WV,Republican,Republican,Republican,Republican,Appointed,,38.597626,-80.454903
+Wisconsin,WI,Democrat,Republican,Republican,Democrat,Appointed,,43.78444,-88.787868
+Wyoming,WY,Republican,Republican,Republican,Appointed,Appointed,,43.075968,-107.290284
+,,,,,,,,,
+Notes,,,,,,,,,
+"For attorneys general and insurance commissioners, only elected officials' political party is displayed.",,,,,,,,,
+,,,,,,,,,
+Sources,,,,,,,,,
+"*Governor Political Affiliation*: [Current Governors 2020](https://www.nga.org/governors-2/), National Governors Association (NGA), as of January 3, 2019.",,,,,,,,,
+,,,,,,,,,
+"*State & Legislative Partisan Composition*: [Post Election 2019 State & Legislative Partisan Composition](http://www.ncsl.org/Portals/1/Documents/Elections/Legis_Control_2019_Post-Election%20Nov%2022nd.pdf), National Conference of State Legislatures (NCSL), as of November 22, 2019.",,,,,,,,,
+,,,,,,,,,
+"*State Attorney General Political Affiliation*: [Attorneys General: Who's My AG?](http://naag.org/naag/attorneys-general/whos-my-ag.php), National Association of Attorneys General (NAAG), accessed January 8, 2019.",,,,,,,,,
+,,,,,,,,,
+"*State Insurance Commissioner Political Affiliation*: [National Association of Insurance Commissioners Membership List](http://www.naic.org/documents/members_membershiplist.pdf), National Association of Insurance Commissioners (NAIC), revised November 18, 2019.",,,,,,,,,
+,,,,,,,,,
+Definitions,,,,,,,,,
+*N/A*:  Not applicable.,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+Footnotes,,,,,,,,,
+"1. The District of Columbia (DC) has an elected Mayor. Additionally, the legislative branch of DC is a 13 member City Council. The Council has a Democratic majority.",,,,,,,,,
+2. Nebraska has a Unicameral system with no political affiliations.,,,,,,,,,

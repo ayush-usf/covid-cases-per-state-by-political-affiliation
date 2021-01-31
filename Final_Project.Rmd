@@ -1,0 +1,201 @@
+---
+title: "Covid Cases per state by political affiliation"
+author: "Ayush Arora"
+date: "12/2/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(httr)
+library(jsonlite)
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(maps)
+library(ggmap)
+```
+
+
+
+#### Importing political affiliation by state data from CSV
+```{r}
+df = read.csv("https://raw.githubusercontent.com/Araisedtotwo/Final-Project/main/raw_data.csv",skip = 2, header = T)
+```
+
+#### Cleaning the data - Removing extra columns
+```{r}
+df$State.Senate.Majority.Political.Affiliation <- NULL
+df$State.House.Majority.Political.Affiliation <- NULL
+df$State.Attorney.General.Political.Affiliation  <- NULL
+df$State.Insurance.Commissioner.Political.Affiliation  <- NULL
+df$Footnotes   <- NULL
+head(df,5)
+```
+
+#### Renaming column "State.Code" to "state" and
+
+#### "Governor.Political.Affiliation" to  "affiliation" for join
+```{r}
+df2 <- df %>% 
+  rename(
+    state = State.Code,
+    affiliation = Governor.Political.Affiliation
+    )
+head(df2,5)
+```
+#### View Invalid rows at the bottom of CSV
+```{r}
+tail(df2,4)
+```
+
+#### Cleaning the data - Removing invalid rows from the bottom (not part of the analysis)
+```{r}
+cleaned <- head(df2,51)
+head(cleaned,5)
+```
+### Data Source 2 - API
+#### Extracting COVID data from API for merging with political affiliation dataset
+```{r warning=FALSE}
+cases <- fromJSON("https://data.cdc.gov/resource/9mfq-cb36.json?submission_date=2020-10-31", flatten = TRUE)
+head(cases,5)
+```
+#### Formatting Date
+```{r warning=FALSE}
+cases[[1]] <- substr(cases$submission_date, 0, 10)
+head(cases,5)
+```
+
+#### Joining/Merging the dataframes
+```{r}
+final_df <- merge(cleaned, cases)
+head(final_df, 5)
+```
+
+#### Converting total_cases and total_deaths to numeric
+```{r}
+final_df <- transform(final_df, tot_cases = as.numeric(tot_cases))
+final_df <- transform(final_df, tot_death = as.numeric(tot_death))
+head(final_df, 5)
+```
+#### Extracting data for the Republican States
+```{r}
+republican <- final_df[final_df$affiliation == 'Republican',]
+head(republican,3)
+```
+
+#### Extracting data for the Democrat States
+```{r}
+democrat <- final_df[final_df$affiliation == 'Democrat',]
+head(democrat,3)
+```
+#### Total cases for republican states
+```{r}
+republican$tot_cases
+length(republican$tot_cases)
+```
+
+#### Total cases for Democrat states
+```{r}
+democrat$tot_cases
+length(democrat$tot_cases)
+```
+
+#### Summary for Democratic States
+```{r}
+summary(democrat$tot_cases)
+```
+#### Summary for Republican States
+```{r}
+summary(republican$tot_cases)
+```
+#### Box Plot : Covid Cases Distribution by states' political party affiliation
+##### Republicans (1) and Decomcrats (2)
+
+```{r}
+dat_ggplot <- data.frame(
+  value = c(republican$tot_cases,democrat$tot_cases),
+  Political_Affiliation = c(rep("Republican States",26), rep("Democrat States", 25))
+)
+
+ggplot(dat_ggplot) +
+  aes(x = Political_Affiliation, y = value) +
+  geom_boxplot() +
+  theme_minimal()
+```
+
+#### T-test: Check whether average total cases in Democrat vs Republican affiliated states are significantly different
+```{r}
+t.test(republican$tot_cases, y = democrat$tot_cases,alternative = c("two.sided"),
+       mu = 0, paired = FALSE, var.equal = FALSE,
+       conf.level = 0.95)
+```
+
+
+#### Conclusion 1
+
+- As can be seen from the box plot and the descriptive statistics, the median number of Covid Cases are nearly the same for the states affiliated to either party.
+- Since the p-value of 0.729 is greater than the 5% level of significance from the T-test, the average number of cases in Republican states are not significantly different from the average number of cases in the Democrat states.
+
+---
+
+#### Analysis 2: Finding difference in average death proportion for states of different political party affiliation
+
+---
+
+#### Computing death proportion (percentage)
+```{r}
+
+final_df$death_percent <-  final_df$tot_death / final_df$tot_cases * 100
+
+final_df %>%
+  select(Location, affiliation, tot_death, tot_cases,death_percent)
+
+```
+
+#### Segregating affiliations for T-test
+```{r}
+republican2 <- final_df[final_df$affiliation == 'Republican',]
+democrat2 <- final_df[final_df$affiliation == 'Democrat',]
+summary(republican2$death_percent)
+summary(democrat2$death_percent)
+```
+#### T-test for death proportion
+```{r}
+t.test(republican2$death_percent, y = democrat2$death_percent,alternative = c("two.sided"),
+       mu = 0, paired = FALSE, var.equal = FALSE,
+       conf.level = 0.95)
+```
+
+### Death Percantage Visualizations
+```{r}
+Republican_Death_Percentage <- republican2$death_percent
+hist(Republican_Death_Percentage)
+```
+```{r}
+
+Democrat_Death_Percentage <- democrat2$death_percent
+hist(Democrat_Death_Percentage)
+```
+
+```{r}
+
+usa <- map_data("state")
+```
+#### Additional Feature : Plotting Death proportions using ggmap
+```{r}
+final_df2<-final_df[!(final_df$Location=="Alaska" | final_df$Location=="Hawaii"),]
+
+ggplot() + geom_polygon(data = usa, aes(x=long, y = lat, group = group)) + 
+  coord_fixed(1.3) + 
+  geom_point(data = final_df2, size=final_df2$death_percent, mapping = aes(x = longitude, y = latitude), color = ifelse(final_df2$affiliation =="Republican",'red','blue'))
+```
+--- 
+
+#### Conclusion 2
+
+---
+
+- Since the p-value of 0.0753 is marginally greater than the 5% level of significance from the T-test, the average death percentage in Republican states are not significantly different from the average number of cases in the Democrat states.
+
+- But, from the histogram (highest length in the last bucket) and map, it can be seen that states affiliated with Democrats have higher death percentage than those affiliated with Republicans.
